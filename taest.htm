@@ -1,0 +1,69 @@
+<style type="text/css">
+
+    .subTablemain td {
+        text-align: center;
+        border: 1px solid #ccc;
+        padding: 8px 1px;
+
+    }
+
+    .subTablemain .fontWeight {
+        font-weight: bold;
+    }
+
+    .headstyle td{
+        padding: 3px;
+        width: 14.5%
+    }
+
+</style>
+<div class="subTablemain" style="width: 100%;margin:0 auto;">
+      <table id="tabledata" style="margin:0 auto;border-collapse:collapse; width:100%">
+      <thead>
+           <tr class="headstyle">
+               <td>
+                  专业 
+               </td>
+               <td>
+                   专业状态
+               </td>
+               <td>
+                   设计人员
+               </td>
+               <td>
+                   校核
+               </td>
+               <td>
+                   审核
+               </td>
+               <td>
+                   分配比例
+               </td>
+               <td>
+                   计划完成时间
+               </td>
+           </tr>
+      </thead>
+      <tbody>
+        <!--ko foreach:subItems() -->
+         <tr>
+
+         </tr>
+        <!--/ko--> 
+      </tbody>
+    
+    </table>
+</div>
+<div style="display:none;" class="selectPersonDiv">
+        <div id="selectPerson">
+    
+        </div>
+    </div>
+<script type="text/javascript">
+   $('#tabledata>tbody tr:even').css("background-color","#f5f5f5");
+</script>    
+<script type='text/javascript' src="../../siteassets/subprojectperson/knockout-3.3.0.js"></script>
+<script type="text/javascript" src="/_layouts/15/clientforms.js"></script>
+<script type="text/javascript" src="/_layouts/15/clientpeoplepicker.js"></script>
+<script type="text/javascript" src="/_layouts/15/autofill.js"></script>
+<script type='text/javascript' src="../../siteassets/subprojectperson/huameng.js"></script>
