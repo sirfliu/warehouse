@@ -1,5 +1,4 @@
 <style type="text/css">
-
     .subTablemain td {
         text-align: center;
         border: 1px solid #ccc;
@@ -11,59 +10,93 @@
         font-weight: bold;
     }
 
-    .headstyle td{
+    .headstyle td {
         padding: 3px;
         width: 14.5%
     }
 
+    .SELECT {
+        BORDER-RIGHT: #000000 1px solid;
+        BORDER-TOP: #FFFFFF 1px solid;
+        FONT-SIZE: 9px;
+        BORDER-LEFT: #FFFFFF 1px solid;
+        COLOR: #003366;
+        BORDER-BOTTOM: #000000 1px solid;
+        BACKGROUND-COLOR: #f4f4f4;
+    }
 </style>
-<div class="subTablemain" style="width: 100%;margin:0 auto;">
-      <table id="tabledata" style="margin:0 auto;border-collapse:collapse; width:100%">
-      <thead>
-           <tr class="headstyle">
-               <td>
-                  专业 
-               </td>
-               <td>
-                   专业状态
-               </td>
-               <td>
-                   设计人员
-               </td>
-               <td>
-                   校核
-               </td>
-               <td>
-                   审核
-               </td>
-               <td>
-                   分配比例
-               </td>
-               <td>
-                   计划完成时间
-               </td>
-           </tr>
-      </thead>
-      <tbody>
-        <!--ko foreach:subItems() -->
-         <tr>
+<div class="subTablemain" style="width: 100%;margin:0 auto;display: none">
+    <table id="tabledata" style="margin:0 auto;border-collapse:collapse; width:100%">
+        <thead>
+            <tr class="headstyle">
+                <td>
+                    专业
+                </td>
+                <td>
+                    专业状态
+                </td>
+                <td>
+                    设计人员
+                </td>
+                <td>
+                    校核人员
+                </td>
+                <td>
+                    审核人员
+                </td>
+                <td>
+                    分配比例
+                </td>
+                <td>
+                    计划完成时间
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <!--ko foreach:subItems() -->
+            <tr>
+                <td>
+                    <span data-bind="html:Title"></span>
+                </td>
+                <td>
+                    <!--ko if:!isSJRY-->
+                    <span data-bind="html:zyzt"></span>
+                    <!--/ko-->
+                    <!--ko if:isSJRY-->
+                    <select class="SELECT" data-bind="options:$root.StatusList,optionsText:'StatusName',optionsValue:'StatusID',value:StatusSelected,optionsCaption:zyzt"></select>
+                    <!--/ko-->
+                </td>
+                <td>
+                    <span data-bind="html:sjrystr"></span>
+                </td>
+                <td>
+                    <span data-bind="html:jhrystr"></span>
+                </td>
+                <td>
+                    <span data-bind="html:shrystr"></span>
+                </td>
+                <td>
+                    <span data-bind="html:fpbl"></span>
+                </td>
+                <td>
+                    <span data-bind="html:jhwcsj"></span>
+                </td>
 
-         </tr>
-        <!--/ko--> 
-      </tbody>
-    
+            </tr>
+            <!--/ko-->
+        </tbody>
+
     </table>
-</div>
-<div style="display:none;" class="selectPersonDiv">
-        <div id="selectPerson">
-    
-        </div>
+    <!--ko if:$root.isPower-->
+    <div style="float:right">
+        <input type="button" value="保存" data-bind='click:$root.EditClick' style="background-color:rgb(175,231,237)" />
     </div>
+    <!--/ko-->
+</div>
 <script type="text/javascript">
-   $('#tabledata>tbody tr:even').css("background-color","#f5f5f5");
-</script>    
+    $('#tabledata>tbody>tr:eq(2)').css("background-color", "#f5f5f5");
+</script>
 <script type='text/javascript' src="../../siteassets/subprojectperson/knockout-3.3.0.js"></script>
 <script type="text/javascript" src="/_layouts/15/clientforms.js"></script>
-<script type="text/javascript" src="/_layouts/15/clientpeoplepicker.js"></script>
 <script type="text/javascript" src="/_layouts/15/autofill.js"></script>
-<script type='text/javascript' src="../../siteassets/subprojectperson/huameng.js"></script>
+<script type='text/javascript' src="../../siteassets/subprojectperson/liu.js"></script>
